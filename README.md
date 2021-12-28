@@ -2,7 +2,7 @@
 
 ![version](https://img.shields.io/badge/version-3.0.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-kit.svg?maxAge=2592000)](https://github.com/creativetimofficial/material-kit/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/material-kit.svg?maxAge=2592000)](https://github.com/creativetimofficial/material-kit/issues?q=is%3Aissue+is%3Aclosed)
 
-![Image](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-kit/material-kit.jpg)
+![Image](assets/img/PourReadMe.jpg)
 
 
 **Material Kit** is a **Free Bootstrap 5 UI Kit** with a fresh, new design inspired by Google's material design. You asked for it, so we built it. It's a great pleasure to introduce to you the material concepts in an easy to use and beautiful set of components. Along with the restyling of the Bootstrap elements, you will find three fully-coded example pages, to help you design your next project.
