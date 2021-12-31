@@ -10,6 +10,108 @@
  =========================================================
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<?php
+if (isset($_POST["submit"])) {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
+    if (isset($name) and isset($email) and isset($message)) {
+        // Replace the URL with your own webhook url
+        $url = "https://discord.com/api/webhooks/926452833329512478/i5tI4WgM2Oo4OE54HXuVRep5m80I9dMnXV868JRJCn6Pu5D9Wd5M6l78KPv1-9CaMIIx";
+
+        $timeStamp = date('Y-m-d\TH:i:sO');
+
+        $name_title = "**Nom : **" . $name;
+        $description =  "**Email : **" . $email . "\n**Message : **" . $message;
+        $hookObject = json_encode([
+            /*
+             * The general "message" shown above your embeds
+             */
+            "content" => "",
+            /*
+             * The username shown in the message
+             */
+            "username" => "Nouveau Message venant du Site Web",
+            /*
+             * The image location for the senders image
+             */
+            "avatar_url" => "https://pbs.twimg.com/profile_images/1466389663942381576/mhpFgjFd_400x400.png",
+            /*
+             * Whether or not to read the message in Text-to-speech
+             */
+            "tts" => false,
+            /*
+             * File contents to send to upload a file
+             */
+            // "file" => "",
+            /*
+             * An array of Embeds
+             */
+            "embeds" => [
+                /*
+                 * Our first embed
+                 */
+                [
+                    // Set the title for your embed
+                    "title" => $name_title,
+
+                    // The type of your embed, will ALWAYS be "rich"
+                    "type" => "rich",
+
+                    // A description for your embed
+                    "description" => $description,
+
+                    // The URL of where your title will be a link to
+                    "url" => "https://www.heficience.com/",
+
+                    /* A timestamp to be displayed below the embed, IE for when an an article was posted
+                     * This must be formatted as ISO8601
+                     */
+                    "timestamp" => $timeStamp,
+
+                    // The integer color to be used on the left side of the embed
+                    "color" => hexdec( "5DCDC6" ),
+
+                    // Footer object
+                    "footer" => [
+                        "text" => "Heficience",
+                        "icon_url" => ""
+                    ],
+
+                    // Image object
+                    "image" => [
+                        "url" => "https://cdn.discordapp.com/attachments/904849842629672980/904850659482959952/logofinal2large.png"
+                    ],
+
+                    // Author object
+                    "author" => [
+                        "name" => $name,
+                        "url" => "https://www.heficience.com"
+                    ]
+                ]
+            ]
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+
+        $ch = curl_init();
+
+        curl_setopt_array( $ch, [
+            CURLOPT_URL => $url,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $hookObject,
+            CURLOPT_HTTPHEADER => [
+                "Content-Type: application/json"
+            ]
+        ]);
+
+        $response = curl_exec( $ch );
+        curl_close( $ch );
+
+    } else {
+        $message='Formulaire non complété correctement';
+        echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr" itemscope>
 
@@ -34,7 +136,7 @@
   <link id="pagestyle" href="../assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
 </head>
 
-<body class="contact-us">
+<body class="blog-author bg-gray-200">
   <!-- Navbar Transparent -->
   <div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
     <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
@@ -71,10 +173,10 @@
                   <a href="./about-us.html" class="dropdown-item border-radius-md">
                     <span>À propos de nous</span>
                   </a>
-                  <a href="./contact-us.html" class="dropdown-item border-radius-md">
+                  <a href="./contact-us.php" class="dropdown-item border-radius-md">
                     <span>Nous contacter</span>
                   </a>
-                  <a href="./author.html" class="dropdown-item border-radius-md">
+                  <a href="./author.php" class="dropdown-item border-radius-md">
                     <span>Auteur de la page</span>
                   </a>
                 </div>
@@ -93,10 +195,10 @@
                   <a href="./about-us.html" class="dropdown-item border-radius-md">
                     <span>À propos de nous</span>
                   </a>
-                  <a href="./contact-us.html" class="dropdown-item border-radius-md">
+                  <a href="contact-us.php" class="dropdown-item border-radius-md">
                     <span>Nous contacter</span>
                   </a>
-                  <a href="./author.html" class="dropdown-item border-radius-md">
+                  <a href="./author.php" class="dropdown-item border-radius-md">
                     <span>Auteur de la page</span>
                   </a>
                 </div>
@@ -447,52 +549,145 @@
     </nav>
   </div></div></div>
   <!-- End Navbar -->
-  <!-- -------- START HEADER 8 w/ card over right bg image ------- -->
-  <section>
-    <div class="page-header min-vh-100">
+  <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
+  <header>
+    <div class="page-header min-height-400" style="background-image: url('../assets/img/tours.jpg');">
+      <span class="mask bg-gradient-dark opacity-8"></span>
+    </div>
+  </header>
+  <!-- -------- END HEADER 4 w/ search book a ticket form ------- -->
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
+    <!-- START Testimonials w/ user image & text & info -->
+    <section class="py-sm-7 py-5 position-relative">
       <div class="container">
         <div class="row">
-          <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
-            <div class="position-relative h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url('../assets/img/illustrations/illustration-signin.svg'); background-size: cover;">
+          <div class="col-12 mx-auto">
+            <div class="mt-n8 mt-md-n9 text-center">
+              <img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="../assets/img/bruce-mars.jpg" alt="bruce" loading="lazy">
+            </div>
+            <div class="row py-5">
+              <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="mb-0">PaulW</h3>
+                  <div class="d-block">
+                    <a target="_blank" href="https://twitter.com/PaulWOISARD?ref_src=twsrc%5Etfw" class="btn btn-sm btn-outline-info text-nowrap mb-0" data-show-count="false">Suivez-Moi</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <!--<button type="button" onclick="window.location.href='/page2'" class="btn btn-sm btn-outline-info text-nowrap mb-0">Follow</button>-->
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-auto">
+                    <span class="h6">211</span>
+                    <span>Posts</span>
+                  </div>
+                  <div class="col-auto">
+                    <span class="h6">28</span>
+                    <span>Followers</span>
+                  </div>
+                  <div class="col-auto">
+                    <span class="h6">21</span>
+                    <span>Following</span>
+                  </div>
+                </div>
+                <p class="text-lg mb-0">
+                  Ayant durant plusieurs années à bosser sur le projet Handy Open Source,
+                  une association aujourd'hui dissoute j'ai décidé de continuer mes activités
+                  de développeur de logiciels d'accessibilité pour le plus grand nombre au sein d'Heficience.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="col-xl-5 col-lg-6 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
-            <div class="card d-flex blur justify-content-center shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                <div class="bg-gradient-success shadow-primary border-radius-lg p-3">
-                  <h3 class="text-white text-success mb-0">Pour nous contacter</h3>
+        </div>
+      </div>
+    </section>
+    <!-- END Testimonials w/ user image & text & info -->
+    <section class="py-sm-7 py-5 position-relative">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mx-auto">
+            <div class="row py-5">
+              <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
+                <p class="text-lg mb-0">
+                  J'ai utilisé le modèle de site web Material Kit 2 de Creative Tim : https://www.creative-tim.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <section class="py-lg-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card box-shadow-xl overflow-hidden mb-5">
+            <div class="row">
+              <div class="col-lg-5 position-relative bg-cover px-0" style="background-image: url('../assets/img/tours.jpg')">
+                <div class="z-index-2 text-center d-flex h-100 w-100 d-flex m-auto justify-content-center">
+                  <div class="mask bg-gradient-dark opacity-8"></div>
+                  <div class="p-5 ps-sm-8 position-relative text-start my-auto z-index-2">
+                    <h3 class="text-white">Contact pour plus d'Information</h3>
+                    <p class="text-white opacity-8 mb-4">Remplissez le formulaire et on vous répond sous 24 heures.</p>
+                    <div class="d-flex p-2 text-white">
+                      <div>
+                        <i class="fas fa-phone text-sm"></i>
+                      </div>
+                      <div class="ps-3">
+                        <span class="text-sm opacity-8">(+33) 6 15 17 73 00</span>
+                      </div>
+                    </div>
+                    <div class="d-flex p-2 text-white">
+                      <div>
+                        <i class="fas fa-envelope text-sm"></i>
+                      </div>
+                      <div class="ps-3">
+                        <span class="text-sm opacity-8">paulwoisard@gmail.com</span>
+                      </div>
+                    </div>
+                    <div class="d-flex p-2 text-white">
+                      <div>
+                        <i class="fas fa-map-marker-alt text-sm"></i>
+                      </div>
+                      <div class="ps-3">
+                        <span class="text-sm opacity-8">All around the planet.</span>
+                      </div>
+                    </div>
+                    <div class="mt-4">
+                      <a target="_blank" href="https://www.facebook.com/Heficience"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
+                      <a target="_blank" href="https://www.tiktok.com/@heficience"><i class="fab fa-tiktok text-lg text-white me-4"></i></a>
+                      <a target="_blank" href="https://twitter.com/heficience"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
+                      <a target="_blank" href="https://discord.gg/2dxKDJ2RNK"><i class="fab fa-discord text-lg text-white"></i></a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="card-body">
-                <p class="pb-3">
-                  Pour vos questions, comprenant la participation à nos projets, envoyez un email à paulwoisard@gmail.com
-                  ou utilisez le formulaire de contact ci-dessous.
-                </p>
+              <div class="col-lg-7">
                 <form id="contact-form" method="post" autocomplete="off">
+                  <h2></h2>
                   <div class="card-body p-0 my-3">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="input-group input-group-static mb-4">
                           <label>Votre Nom complet</label>
-                          <input type="name" class="form-control" placeholder="Nom complet">
+                          <input name="name" type="text" class="form-control" placeholder="Nom complet">
                         </div>
                       </div>
                       <div class="col-md-6 ps-md-2">
                         <div class="input-group input-group-static mb-4">
                           <label>Votre Email</label>
-                          <input type="email" class="form-control" placeholder="exemple@domaine.com">
+                          <input name="email" type="email" class="form-control" placeholder="exemple@domaine.com">
                         </div>
                       </div>
                     </div>
                     <div class="form-group mb-0 mt-md-0 mt-4">
                       <div class="input-group input-group-static mb-4">
                         <label>Décrivez votre demande</label>
-                        <textarea name="message" class="form-control" id="message" rows="6" placeholder="Décrivez votre demande avec 250 caractères aux maximum."></textarea>
+                        <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum."></textarea>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12 text-center">
-                        <button type="submit" class="btn bg-gradient-success mt-3 mb-0">Envoyer votre message</button>
+                        <button name="submit" type="submit" class="btn bg-gradient-success mt-3 mb-0">Envoyer votre message</button>
                       </div>
                     </div>
                   </div>
@@ -504,7 +699,7 @@
       </div>
     </div>
   </section>
-  <!-- -------- END HEADER 8 w/ card over right bg image ------- -->
+  <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
   <footer class="footer card card-body pt-5 mt-5">
     <div class="container">
       <div class=" row">
@@ -599,7 +794,7 @@
             <h6 class="text-sm">Aides et Support</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link" href="./contact-us.html">
+                <a class="nav-link" href="contact-us.php">
                   Nous contacter
                 </a>
               </li>
@@ -654,6 +849,7 @@
       </div>
     </div>
   </footer>
+  <!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
