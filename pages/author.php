@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
     $message = $_POST["message"];
     if (!empty($name) and !empty($email) and !empty($message)) {
         // Replace the URL with your own webhook url
-        $url = "https://discord.com/api/webhooks/926452833329512478/i5tI4WgM2Oo4OE54HXuVRep5m80I9dMnXV868JRJCn6Pu5D9Wd5M6l78KPv1-9CaMIIx";
+        $url = "https://discord.com/api/webhooks/926799623031496774/NQmRa0nWc0HVDwKOrwSmC3uF4NTit9hYpnotXdUJPUPH6BZjLrxzapd_iVOyaIGfKQmt";
 
         $timeStamp = date('Y-m-d\TH:i:sO');
 
@@ -27,7 +27,7 @@ if (isset($_POST["submit"])) {
             /*
              * The general "message" shown above your embeds
              */
-            "content" => "",
+            "content" => "@here",
             /*
              * The username shown in the message
              */
