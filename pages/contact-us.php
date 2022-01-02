@@ -106,6 +106,9 @@ if (isset($_POST["submit"])) {
         $response = curl_exec( $ch );
         curl_close( $ch );
 
+        $message='Formulaire envoyé à Heficience';
+        echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+        
     } else {
         $message='Formulaire non complété correctement';
         echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
@@ -141,7 +144,7 @@ if (isset($_POST["submit"])) {
   <div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
     <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
       <div class="container-fluid px-0">
-        <a class="navbar-brand font-weight-bolder ms-sm-3" href="../index.html" rel="tooltip" title="Heficience" data-placement="bottom">
+        <a class="navbar-brand font-weight-bolder ms-sm-3" href="../index.php" rel="tooltip" title="Heficience" data-placement="bottom">
           Heficience
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -164,7 +167,7 @@ if (isset($_POST["submit"])) {
                   <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                     Nos Pages à parcourir
                   </h6>
-                  <a href="../index.html" class="dropdown-item border-radius-md">
+                  <a href="../index.php" class="dropdown-item border-radius-md">
                     <span>Accueil</span>
                   </a>
                   <a href="./reference.html" class="dropdown-item border-radius-md">
@@ -186,7 +189,7 @@ if (isset($_POST["submit"])) {
                     Nos Pages à parcourir
                   </h6>
 
-                  <a href="../index.html" class="dropdown-item border-radius-md">
+                  <a href="../index.php" class="dropdown-item border-radius-md">
                     <span>Accueil</span>
                   </a>
                   <a href="./reference.html" class="dropdown-item border-radius-md">
@@ -613,7 +616,7 @@ if (isset($_POST["submit"])) {
       <div class=" row">
         <div class="col-md-3 mb-4 ms-auto">
           <div>
-            <a href="../index.html">
+            <a href="../index.php">
               <img src="../assets/img/favicon.png" class="mb-3 footer-logo" alt="main_logo">
             </a>
             <h6 class="font-weight-bolder mb-4">Heficience</h6>

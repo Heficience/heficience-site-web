@@ -11,64 +11,55 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 
-<!--<?php
+<?php
+/**
+ * ===================================================
+ * DATA DE L'APPLICATION
+ * ===================================================
+ **/
+$data = [
+    'Menu' => ["3JvDvhu", "3JvFEtm", "3qEPLnj"],
+    'App'  => ["3jhxM3H", "31brKLP"],
+    'DVK'  => ["3sGYwjj", "3JwemD4"]
 
-function mycurl($CodeBitly) {
-
-    $url = "https://api-ssl.bitly.com/v4/bitlinks/bit.ly/{$CodeBitly}/clicks/summary";
-
-    $headers = array(
-        "Authorization: 6b97de8034cd49d9c6cd6c0c89697ff275ac76d2",
-        "Content-Type: application/json"
-    );
-
+];
+$token = '6b97de8034cd49d9c6cd6c0c89697ff275ac76d2';
+/**
+ * ===================================================
+ * FUNCTION PRINCIPALS
+ * ===================================================
+ **/
+function countClicksMonth($bitlyCode)
+{
+    $url = "https://api-ssl.bitly.com/v4/bitlinks/bit.ly/$bitlyCode/clicks/summary";
+    global $token;
     $ch = curl_init($url);
 
-    curl_setopt($ch, CURLOPT_GETFIELDS, json_encode(['unit'=>'day','units'=>-1]));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, True);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Authorization: Bearer " . $token,
+        "Content-Type: application/json"
+    ]);
 
-    $value = ($ch);
-
+    $data = curl_exec($ch);
     curl_close($ch);
 
-    return $value;
+    $arr_result = json_decode($data);
+    return $arr_result->total_clicks;
 }
-function onloadMenu()
+
+function getCountTableName($tableName)
 {
-    $MenuWin_input = mycurl("3JvDvhu");
-    $MenuMac_input = mycurl("3JvFEtm");
-    $MenuLin_input= mycurl("3qEPLnj");
+    $count = 0;
+    global $data;
 
-    $MenuWin = json_decode(file_get_contents($MenuWin_input));
-    $MenuMac = json_decode(file_get_contents($MenuMac_input));
-    $MenuLin = json_decode(file_get_contents($MenuLin_input));
-
-    return $MenuWin["total_clicks"] + $MenuMac["total_clicks"] + $MenuLin["total_clicks"];
+    foreach ($data[$tableName] as $clicks) {
+        $count += countClicksMonth($clicks);
+    }
+    echo $count;
 }
-function onloadapp()
-{
-    $appPlayStore_input = mycurl("3jhxM3H");
-    $appFDroid_input = mycurl("31brKLP");
-
-    $appPlayStore = json_decode(file_get_contents($appPlayStore_input));
-    $appFDroid = json_decode(file_get_contents($appFDroid_input));
-
-    return $appPlayStore["total_clicks"] + $appFDroid["total_clicks"];
-}
-
-function onloadDVK()
-{
-    $DVKBuntuS_input = mycurl("3sGYwjj");
-    $DVKBuntuL_input = mycurl("3JwemD4");
-
-    $DVKBuntuS = json_decode(file_get_contents($DVKBuntuS_input));
-    $DVKBuntuL = json_decode(file_get_contents($DVKBuntuL_input));
-
-    return $DVKBuntuS["total_clicks"] + $DVKBuntuL["total_clicks"];
-}
-?>-->
+?>
 <!DOCTYPE html>
 <html lang="fr" itemscope>
 
@@ -110,7 +101,7 @@ function onloadDVK()
 <div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
 <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
   <div class="container-fluid px-0">
-    <a class="navbar-brand font-weight-bolder ms-sm-3" href="index.html" rel="tooltip" title="Heficience" data-placement="bottom">
+    <a class="navbar-brand font-weight-bolder ms-sm-3" href="index.php" rel="tooltip" title="Heficience" data-placement="bottom">
       Heficience
     </a>
     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,7 +124,7 @@ function onloadDVK()
   <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
     Nos Pages à parcourir
   </h6>
-  <a href="index.html" class="dropdown-item border-radius-md">
+  <a href="index.php" class="dropdown-item border-radius-md">
     <span>Accueil</span>
   </a>
   <a href="./pages/reference.html" class="dropdown-item border-radius-md">
@@ -155,7 +146,7 @@ function onloadDVK()
     Nos Pages à parcourir
   </h6>
 
-  <a href="index.html" class="dropdown-item border-radius-md">
+  <a href="index.php" class="dropdown-item border-radius-md">
     <span>Accueil</span>
   </a>
   <a href="./pages/reference.html" class="dropdown-item border-radius-md">
@@ -544,28 +535,25 @@ function onloadDVK()
         <div class="row">
           <div class="col-md-4 position-relative">
             <div class="p-3 text-center">
-              <!--<?php $menu=onloadMenu(); echo '<h1 class="text-gradient text-success"><span id="state1" countTo="'. $menu . '">0</span>+</h1>' ?>-->
-                <h1 class="text-gradient text-success"><span id="state1" countTo="3840">0</span>+</h1>
-              <h5 class="mt-3">Ligne de code écrites</h5>
-              <p class="text-sm font-weight-normal">Nous développons petit à petit nos projets</p>
+                <h1 class="text-gradient text-success"><span id="state1" countTo="<?php getCountTableName("Menu"); ?>">0</span>+</h1>
+              <h5 class="mt-3">Téléchargements ce mois de Heficience Menu</h5>
+              <p class="text-sm font-weight-normal">Une nouvelle façon d'utiliser votre ordinateur (sous macOS, sous Windows ou Linux)</p>
             </div>
             <hr class="vertical dark">
           </div>
           <div class="col-md-4 position-relative">
             <div class="p-3 text-center">
-              <!--<?php $app=onloadapp(); echo '<h1 class="text-gradient text-success"> <span id="state2" countTo="' . $app . '">0</span>+</h1>' ?>-->
-                <h1 class="text-gradient text-success"> <span id="state2" countTo="15">0</span>+</h1>
-              <h5 class="mt-3">Des interfaces jolies</h5>
-              <p class="text-sm font-weight-normal">Nous avons créer une charte graphique autour des tons verts/bleus</p>
+                <h1 class="text-gradient text-success"><span id="state2" countTo="<?php getCountTableName("App"); ?>">0</span>+</h1>
+              <h5 class="mt-3">Téléchargements ce mois de Heficience EasyPhone</h5>
+              <p class="text-sm font-weight-normal">Une application Android qui est conçue pour aider les gens éloignés de l'utilisation des smartphones</p>
             </div>
             <hr class="vertical dark">
           </div>
           <div class="col-md-4">
             <div class="p-3 text-center">
-              <!--<?php $DVKBuntu=onloadDVK(); echo '<h1 class="text-gradient text-success"> <span id="state3" countTo="' . $DVKBuntu . '">0</span>+</h1>' ?>-->
-                <h1 class="text-gradient text-success"> <span id="state3" countTo="10">0</span>+</h1>
-              <h5 class="mt-3">Applications</h5>
-              <p class="text-sm font-weight-normal">Nous avons commencé à développer plusieurs applications</p>
+                <h1 class="text-gradient text-success"><span id="state3" countTo="<?php getCountTableName("DVK"); ?>">0</span>+</h1>
+              <h5 class="mt-3">Téléchargements ce mois de Heficience DVKBuntu</h5>
+              <p class="text-sm font-weight-normal">Deux distributions Linux avec plusieurs d'accessibilité pour les personnes en situation de handicap.</p>
             </div>
           </div>
         </div>
@@ -636,7 +624,7 @@ function onloadDVK()
     <div class=" row">
       <div class="col-md-3 mb-4 ms-auto">
         <div>
-          <a href="index.html">
+          <a href="index.php">
             <img src="./assets/img/favicon.png" class="mb-3 footer-logo" alt="main_logo">
           </a>
           <h6 class="font-weight-bolder mb-4">Heficience</h6>
@@ -789,48 +777,18 @@ function onloadDVK()
 </footer>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--   Core JS Files   -->
 <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
 <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
 
-
-
-
 <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
 <script src="./assets/js/plugins/countup.min.js"></script>
 
-
-
-
-
 <script src="./assets/js/plugins/choices.min.js"></script>
-
-
 
 <script src="./assets/js/plugins/prism.min.js"></script>
 <script src="./assets/js/plugins/highlight.min.js"></script>
-
-
 
 <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
 <script src="./assets/js/plugins/rellax.min.js"></script>
@@ -838,7 +796,6 @@ function onloadDVK()
 <script src="./assets/js/plugins/tilt.min.js"></script>
 <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
 <script src="./assets/js/plugins/choices.min.js"></script>
-
 
 <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
 <script src="./assets/js/plugins/parallax.min.js"></script>
@@ -860,31 +817,33 @@ function onloadDVK()
 <script src="./assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
 
 <script type="text/javascript">
-
-  if (document.getElementById('state1')) {
-    const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
-    if (!countUp.error) {
-      countUp.start();
-    } else {
-      console.error(countUp.error);
+    function functionName() {
+        if (document.getElementById('state1')) {
+            const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+        if (document.getElementById('state2')) {
+            const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+            if (!countUp1.error) {
+                countUp1.start();
+            } else {
+                console.error(countUp1.error);
+            }
+        }
+        if (document.getElementById('state3')) {
+            const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+            if (!countUp2.error) {
+                countUp2.start();
+            } else {
+                console.error(countUp2.error);
+            }
+        }
     }
-  }
-  if (document.getElementById('state2')) {
-    const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
-    if (!countUp1.error) {
-      countUp1.start();
-    } else {
-      console.error(countUp1.error);
-    }
-  }
-  if (document.getElementById('state3')) {
-    const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
-    if (!countUp2.error) {
-      countUp2.start();
-    } else {
-      console.error(countUp2.error);
-    }
-  }
+    document.onload = functionName();
 </script>
 
 

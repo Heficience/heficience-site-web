@@ -2,7 +2,7 @@
   "name": "material-kit",
   "version": "3.0.0",
   "description": "Freebie UI Kit for Bootstrap 5",
-  "main": "index.html",
+  "main": "index.php",
   "directories": {
     "example": "root"
   },
