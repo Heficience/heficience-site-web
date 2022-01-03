@@ -2,11 +2,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/sc2chni5636/heficience.com/
-    - /bin/cp -R assets $DEPLOYPATH
-    - /bin/cp -R docs $DEPLOYPATH
-    - /bin/cp -R pages $DEPLOYPATH
-    - /bin/cp -R sections $DEPLOYPATH
-    - /bin/cp *.php $DEPLOYPATH
-    - /bin/cp *.html $DEPLOYPATH
-    - /bin/cp LICENSE.md $DEPLOYPATH
+    - /bin/cp -R /home/sc2chni5636/repositories/heficience-site-web/assets $DEPLOYPATH
+    - /bin/cp -R /home/sc2chni5636/repositories/heficience-site-web/docs $DEPLOYPATH
+    - /bin/cp -R /home/sc2chni5636/repositories/heficience-site-web/pages $DEPLOYPATH
+    - /bin/cp -R /home/sc2chni5636/repositories/heficience-site-web/sections $DEPLOYPATH
+    - /bin/cp /home/sc2chni5636/repositories/heficience-site-web/*.php $DEPLOYPATH
+    - /bin/cp /home/sc2chni5636/repositories/heficience-site-web/*.html $DEPLOYPATH
+    - /bin/cp /home/sc2chni5636/repositories/heficience-site-web/LICENSE.md $DEPLOYPATH
     
