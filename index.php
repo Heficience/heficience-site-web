@@ -70,10 +70,25 @@ function getCountTableName($tableName)
 <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 
-<title>
- Heficience
-</title>
-
+    <title>
+     Heficience
+    </title>
+    <meta name="keywords" content="handicap" />
+    <meta name="description" content="Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile." />
+    <meta name="author" content="Heficience" />
+    <meta property="og:title" content="Découvrez Heficience !" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image" content=".assets/img/Carte-og.png" />
+    <meta property="og:description" content="Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile." />
+    <meta property="og:url" content="https://www.heficience.com/" />
+    <meta name="theme-color" content="#38a3a5" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@heficience" />
+    <meta name="twitter:title" content="Découvrez Heficience !" />
+    <meta name="twitter:description" content="Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile." />
+    <meta name="twitter:image" content=".assets/img/Carte-Twitter.png" />
+    <meta name="twitter:image:alt" content="Heficience Logo" />
 <!--     Fonts and icons     -->
 <link rel="styleshesvet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 
@@ -519,7 +534,7 @@ function getCountTableName($tableName)
       <div class="row">
         <div class="col-lg-7 text-center mx-auto">
           <h1 class="text-white pt-3 mt-n5">Heficience</h1>
-          <p class="lead text-white mt-3">Un groupe de développeurs créer pour aider les personnes en situation de handicap en développant des applications pour ordinateurs ou mobiles. </p>
+          <p class="lead text-white mt-3">Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile. </p>
         </div>
       </div>
     </div>
@@ -553,7 +568,7 @@ function getCountTableName($tableName)
             <div class="p-3 text-center">
                 <h1 class="text-gradient text-success"><span id="state3" countTo="<?php getCountTableName("DVK"); ?>">0</span>+</h1>
               <h5 class="mt-3">Téléchargements ce mois de Heficience DVKBuntu</h5>
-              <p class="text-sm font-weight-normal">Deux distributions Linux avec plusieurs d'accessibilité pour les personnes en situation de handicap.</p>
+              <p class="text-sm font-weight-normal">Deux distributions Linux avec plusieurs outils d'accessibilité pour les personnes en situation de handicap.</p>
             </div>
           </div>
         </div>
@@ -585,28 +600,28 @@ function getCountTableName($tableName)
             <div class="info">
               <i class="material-icons text-gradient text-success text-3xl">content_copy</i>
               <h5 class="font-weight-bolder mt-3">Nous écrivons de la documentation</h5>
-              <p class="pe-5">Pour vous aidez à utiliser nos logiciels.</p>
+              <p class="pe-5">Pour vous aider à utiliser nos logiciels.</p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="info">
               <i class="material-icons text-gradient text-success text-3xl">flip_to_front</i>
-              <h5 class="font-weight-bolder mt-3">Nous voulons vous proposer des solutions logicielles clé en mains</h5>
-              <p class="pe-3">Nous utilisons les langages informatiques les plus connus pour assurer la meilleurs continuité de service possible :<br> C++ Python Javascript, etc.</p>
+              <h5 class="font-weight-bolder mt-3">Nous voulons vous proposer des solutions logicielles clés en mains</h5>
+              <p class="pe-3">Nous utilisons les langages informatiques les plus connus pour assurer la meilleure continuité de service possible :<br> C++ Python Javascript, etc.</p>
             </div>
           </div>
         </div>
         <div class="row justify-content-start mt-5">
           <div class="col-md-6 mt-3">
             <i class="material-icons text-gradient text-success text-3xl">price_change</i>
-            <h5 class="font-weight-bolder mt-3">Economisez sur le coût de vos équipements informatiques</h5>
+            <h5 class="font-weight-bolder mt-3">Économisez sur le coût de vos équipements informatiques</h5>
             <p class="pe-5">En effet, nous développons nos logiciels sous licence open source et nous vous les distribuons gratuitement.</p>
           </div>
           <div class="col-md-6 mt-3">
             <div class="info">
               <i class="material-icons text-gradient text-success text-3xl">devices</i>
-              <h5 class="font-weight-bolder mt-3">Nous sommes présent sous mobiles et ordinateurs</h5>
-              <p class="pe-3">Nous avons une application en C++ pour windows, mac et linux, et nous avons une applications android à terminer (un développeur kotlin serait accueillis comme il se doit par notre équipe de bénévoles).</p>
+              <h5 class="font-weight-bolder mt-3">Nous sommes présent sous mobile et ordinateur</h5>
+              <p class="pe-3">Nous avons une application en C++ pour windows, mac et linux, et nous avons une application android à terminer (un développeur kotlin serait accueillis comme il se doit par notre équipe de bénévoles).</p>
             </div>
           </div>
         </div>
