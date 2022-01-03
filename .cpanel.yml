@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/sc2chni5636/heficience.com/
+    - export DEPLOYPATH=/home/sc2chni5636/heficiencecom/
     - /bin/cp -R /home/sc2chni5636/repositories/heficience-site-web/assets $DEPLOYPATH
     - /bin/cp -R /home/sc2chni5636/repositories/heficience-site-web/docs $DEPLOYPATH
     - /bin/cp -R /home/sc2chni5636/repositories/heficience-site-web/pages $DEPLOYPATH
