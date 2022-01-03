@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/sc2chni5636/heficience.com
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R docs $DEPLOYPATH
+    - /bin/cp -R pages $DEPLOYPATH
+    - /bin/cp -R sections $DEPLOYPATH
+    - /bin/cp *.php $DEPLOYPATH
+    - /bin/cp *.html $DEPLOYPATH
+    - /bin/cp LICENSE.md $DEPLOYPATH
+    
