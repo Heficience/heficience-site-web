@@ -79,7 +79,7 @@ function getCountTableName($tableName)
     <meta property="og:title" content="Découvrez Heficience !" />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:image" content=".assets/img/Carte-og.png" />
+    <meta property="og:image" content="./assets/img/Carte-og.png" />
     <meta property="og:description" content="Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile." />
     <meta property="og:url" content="https://www.heficience.com/" />
     <meta name="theme-color" content="#38a3a5" />
@@ -87,7 +87,7 @@ function getCountTableName($tableName)
     <meta name="twitter:site" content="@heficience" />
     <meta name="twitter:title" content="Découvrez Heficience !" />
     <meta name="twitter:description" content="Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile." />
-    <meta name="twitter:image" content=".assets/img/Carte-Twitter.png" />
+    <meta name="twitter:image" content="./assets/img/Carte-Twitter.png" />
     <meta name="twitter:image:alt" content="Heficience Logo" />
 <!--     Fonts and icons     -->
 <link rel="styleshesvet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
