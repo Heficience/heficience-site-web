@@ -12,9 +12,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <?php
 if (isset($_POST["submit"])) {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
+    $email = filter_var($_POST["email"],FILTER_SANITIZE_EMAIL);
+    $name = filter_var($_POST["name"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
+    $message = filter_var($_POST["message"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
     if (!empty($name) and !empty($email) and !empty($message)) {
         // Replace the URL with your own webhook url
         $url = "https://discord.com/api/webhooks/926799623031496774/NQmRa0nWc0HVDwKOrwSmC3uF4NTit9hYpnotXdUJPUPH6BZjLrxzapd_iVOyaIGfKQmt";
