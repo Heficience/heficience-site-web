@@ -9,4 +9,6 @@ deployment:
     - /bin/cp /home/sc2chni5636/repositories/heficience-site-web/*.php $DEPLOYPATH
     - /bin/cp /home/sc2chni5636/repositories/heficience-site-web/*.html $DEPLOYPATH
     - /bin/cp /home/sc2chni5636/repositories/heficience-site-web/LICENSE.md $DEPLOYPATH
+    - /bin/cp /home/sc2chni5636/repositories/heficience-site-web/robots.txt $DEPLOYPATH
+    - /bin/cp /home/sc2chni5636/repositories/heficience-site-web/sitemap.xml $DEPLOYPATH
     
