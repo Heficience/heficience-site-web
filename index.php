@@ -18,7 +18,7 @@
  * ===================================================
  **/
 $data = [
-    'Menu' => ["3JvDvhu", "3JvFEtm", "3qEPLnj"],
+    'Menu' => ["3JvDvhu", "3JvFEtm", "3qEPLnj", "3r2yaFJ", "31GIhYo", "3HLwyqL"],
     'App'  => ["3jhxM3H", "31brKLP"],
     'DVK'  => ["3sGYwjj", "3JwemD4"]
 
