@@ -23,7 +23,8 @@ $data = [
     'DVK'  => ["3sGYwjj", "3JwemD4"]
 
 ];
-$token = '6b97de8034cd49d9c6cd6c0c89697ff275ac76d2';
+$configs = include('./pages/config.php');
+$token = $configs['token'];
 /**
  * ===================================================
  * FUNCTION PRINCIPALS

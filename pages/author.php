@@ -15,10 +15,9 @@ if (isset($_POST["submit"])) {
     $email = filter_var($_POST["email"],FILTER_SANITIZE_EMAIL);
     $name = filter_var($_POST["name"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
     $message = filter_var($_POST["message"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
+    $configs = include('config.php');
+    $url = $configs['url'];
     if (!empty($name) and !empty($email) and !empty($message)) {
-        // Replace the URL with your own webhook url
-        $url = "https://discord.com/api/webhooks/926799623031496774/NQmRa0nWc0HVDwKOrwSmC3uF4NTit9hYpnotXdUJPUPH6BZjLrxzapd_iVOyaIGfKQmt";
-
         $timeStamp = date('Y-m-d\TH:i:sO');
 
         $name_title = "**Nom : **" . $name;
