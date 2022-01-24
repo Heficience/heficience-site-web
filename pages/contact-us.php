@@ -11,12 +11,15 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <?php
+
 if (isset($_POST["submit"])) {
     $email = filter_var($_POST["email"],FILTER_SANITIZE_EMAIL);
     $name = filter_var($_POST["name"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
     $message = filter_var($_POST["message"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
     $configs = include('config.php');
     $url = $configs['url'];
+    $messageWarning = "";
+    $colorMessageWarning = "white";
     if (!empty($name) and !empty($email) and !empty($message)) {
         $timeStamp = date('Y-m-d\TH:i:sO');
 
@@ -105,12 +108,32 @@ if (isset($_POST["submit"])) {
         $response = curl_exec( $ch );
         curl_close( $ch );
 
-        $message='Formulaire envoyé à Heficience';
-        echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+        $messageWarning='Formulaire envoyé à Heficience';
+        $colorMessageWarning="green";
+        $name == "";
+        $email == "";
+        $message == "";
         
     } else {
-        $message='Formulaire non complété correctement';
-        echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+        $messageWarning='Veuillez remplir correctement le formulaire';
+        $colorMessageWarning="red";
+        if (empty($name)) {
+            $nameManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate; ";
+        } else {
+            $nameManquant = "";
+        }
+
+        if (empty($email)) {
+            $emailManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate; ";
+        } else {
+            $emailManquant = "";
+        }
+
+        if (empty($message)) {
+            $messageManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate; ";
+        } else {
+            $messageManquant = "";
+        }
     }
 }
 ?>
@@ -249,23 +272,25 @@ if (isset($_POST["submit"])) {
                       <h2></h2>
                       <div class="card-body p-0 my-3">
                           <div class="row">
+                              <label style="color:<? echo $colorMessageWarning ?>" > <? echo $messageWarning ?> </label>
                               <div class="col-md-6">
                                   <div class="input-group input-group-static mb-4">
                                       <label>Votre Nom complet</label>
-                                      <input name="name" type="text" class="form-control" placeholder="Nom complet">
+                                      <input name="name" type="text" class="form-control" placeholder="Nom complet" style="<? echo $nameManquant; ?>" value="<?php echo $name ?>">
                                   </div>
                               </div>
                               <div class="col-md-6 ps-md-2">
                                   <div class="input-group input-group-static mb-4">
                                       <label>Votre Email</label>
-                                      <input name="email" type="email" class="form-control" placeholder="exemple@domaine.com">
+                                      <input name="email" type="email" class="form-control" placeholder="exemple@domaine.com" style="<? echo $emailManquant; ?>" value="<?php echo $email ?>">
                                   </div>
                               </div>
-                          </div>
-                          <div class="form-group mb-0 mt-md-0 mt-4">
-                              <div class="input-group input-group-static mb-4">
-                                  <label>Décrivez votre demande</label>
-                                  <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum."></textarea>
+
+                              <div class="form-group mb-0 mt-md-0 mt-4">
+                                  <div class="input-group input-group-static mb-4">
+                                      <label>Décrivez votre demande</label>
+                                      <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum." style="<? echo $messageManquant; ?>"><?php echo $message ?></textarea>
+                                  </div>
                               </div>
                           </div>
                           <div class="row">
