@@ -159,6 +159,8 @@ if (isset($_POST["submit"])) {
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
+  <!-- Cookies -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
 
 <body class="contact-us">
@@ -436,6 +438,30 @@ if (isset($_POST["submit"])) {
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="../assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
+
+  <!-- Cookies -->
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+  <script>
+      window.cookieconsent.initialise({
+          "palette": {
+              "popup": {
+                  "background": "#72bd84"
+              },
+              "button": {
+                  "background": "#467661"
+              }
+          },
+          "theme": "classic",
+          "position": "bottom-right",
+          "content": {
+              "message": "Ce site web utilise des cookies afin de vous proposer une meilleure expérience de navigation.",
+              "dismiss": "OK",
+              "link": "En savoir plus...",
+              "href": "http://heficience.com/pages/legal.html"
+          }
+      });
+  </script>
+
 </body>
 
 </html>

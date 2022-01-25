@@ -106,7 +106,8 @@ function getCountTableName($tableName)
 <!-- CSS Files -->
 <link id="pagestyle" href="./assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
 
-
+<!-- Cookies -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 
 </head>
 
@@ -304,11 +305,7 @@ function getCountTableName($tableName)
   </div>
 </section>
 </div>
-
-
-
-
-  <footer class="footer pt-5 mt-5">
+<footer class="footer pt-5 mt-5">
   <div class="container">
     <div class=" row">
       <div class="col-md-3 mb-4 ms-auto">
@@ -353,9 +350,6 @@ function getCountTableName($tableName)
           </ul>
         </div>
       </div>
-
-
-
       <div class="col-md-2 col-sm-6 col-6 mb-4">
         <div>
           <h6 class="text-sm">Qui Sommes Nous</h6>
@@ -502,31 +496,28 @@ function getCountTableName($tableName)
     document.onload = functionName();
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- Cookies -->
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+  <script>
+      window.cookieconsent.initialise({
+          "palette": {
+              "popup": {
+                  "background": "#72bd84"
+              },
+              "button": {
+                  "background": "#467661"
+              }
+          },
+          "theme": "classic",
+          "position": "bottom-right",
+          "content": {
+              "message": "Ce site web utilise des cookies afin de vous proposer une meilleure expérience de navigation.",
+              "dismiss": "OK",
+              "link": "En savoir plus...",
+              "href": "http://heficience.com/pages/legal.html"
+          }
+      });
+  </script>
 
 </body>
 
