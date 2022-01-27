@@ -20,6 +20,12 @@ if (isset($_POST["submit"])) {
     $url = $configs['url'];
     $messageWarning = "";
     $colorMessageWarning = "white";
+    $nameTextAdded = "";
+    $nameLabelColor = "";
+    $emailTextAdded = "";
+    $emailLabelColor = "";
+    $MessageTextAdded = "";
+    $messageLabelColor = "";
     if (!empty($name) and !empty($email) and !empty($message)) {
         $timeStamp = date('Y-m-d\TH:i:sO');
 
@@ -118,21 +124,33 @@ if (isset($_POST["submit"])) {
         $messageWarning='Veuillez remplir correctement le formulaire';
         $colorMessageWarning="red";
         if (empty($name)) {
-            $nameManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate; ";
+            $nameManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate;";
+            $nameTextAdded = " mal renseigné";
+            $nameLabelColor = "color: red";
         } else {
             $nameManquant = "";
+            $nameTextAdded = "";
+            $nameLabelColor = "";
         }
 
         if (empty($email)) {
-            $emailManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate; ";
+            $emailManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate;";
+	        $emailTextAdded = " mal renseigné";
+            $emailLabelColor = "color: red";
         } else {
             $emailManquant = "";
+            $emailTextAdded = "";
+            $emailLabelColor = "";
         }
 
         if (empty($message)) {
-            $messageManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate; ";
+            $messageManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate;";
+	        $messageTextAdded = " mal renseigné";
+            $messageLabelColor = "color: red";
         } else {
             $messageManquant = "";
+	        $MessageTextAdded = "";
+            $messageLabelColor = "";
         }
     }
 }
@@ -277,20 +295,20 @@ if (isset($_POST["submit"])) {
                               <label style="color:<? echo $colorMessageWarning ?>" > <? echo $messageWarning ?> </label>
                               <div class="col-md-6">
                                   <div class="input-group input-group-static mb-4">
-                                      <label>Votre Nom complet</label>
+                                      <label style="<?echo $nameLabelColor?>" >Votre Nom complet <? echo $nameTextAdded ?></label>
                                       <input name="name" type="text" class="form-control" placeholder="Nom complet" style="<? echo $nameManquant; ?>" value="<?php echo $name ?>">
                                   </div>
                               </div>
                               <div class="col-md-6 ps-md-2">
                                   <div class="input-group input-group-static mb-4">
-                                      <label>Votre Email</label>
+                                      <label style="<?echo $emailLabelColor?>" >Votre Email <? echo $emailTextAdded ?></label>
                                       <input name="email" type="email" class="form-control" placeholder="exemple@domaine.com" style="<? echo $emailManquant; ?>" value="<?php echo $email ?>">
                                   </div>
                               </div>
 
                               <div class="form-group mb-0 mt-md-0 mt-4">
                                   <div class="input-group input-group-static mb-4">
-                                      <label>Décrivez votre demande</label>
+                                      <label style="<? echo $messageLabelColor ?>" >Décrivez votre demande <? echo $messageTextAdded ?></label>
                                       <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum." style="<? echo $messageManquant; ?>"><?php echo $message ?></textarea>
                                   </div>
                               </div>
