@@ -285,7 +285,7 @@ if (isset($_POST["submit"])) {
               </div>
               <div class="card-body">
                 <p class="pb-3">
-                  Pour vos questions, comprenant la participation à nos projets, envoyez un email à paulwoisard@gmail.com
+                  Pour vos questions, comprenant la participation à nos projets, envoyez un email à heficience@gmail.com
                   ou utilisez le formulaire de contact ci-dessous.
                 </p>
                   <form id="contact-form" method="post" autocomplete="off">
