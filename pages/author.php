@@ -109,9 +109,9 @@ if (isset($_POST["submit"])) {
 
         $messageWarning='Formulaire envoyé à Heficience';
         $colorMessageWarning="green";
-        $name == "";
-        $email == "";
-        $message == "";
+        $name = "";
+        $email = "";
+        $message = "";
 
     } else {
         $messageWarning='Veuillez remplir correctement le formulaire';
