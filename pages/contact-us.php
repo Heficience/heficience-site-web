@@ -3,7 +3,7 @@
 * Material Kit 2 - v3.0.0
 =========================================================
 
-* Product Page:  https://www.creative-tim.com/product/material-kit 
+* Product Page:  https://www.creative-tim.com/product/material-kit
 * Copyright 2021 Creative Tim (https://www.creative-tim.com)
 * Coded by www.creative-tim.com
 
@@ -119,7 +119,7 @@ if (isset($_POST["submit"])) {
         $name = "";
         $email = "";
         $message = "";
-        
+
     } else {
         $messageWarning='Veuillez remplir correctement le formulaire';
         $colorMessageWarning="red";
@@ -310,26 +310,25 @@ if (isset($_POST["submit"])) {
                       <h2></h2>
                       <div class="card-body p-0 my-3">
                           <div class="row">
-                              <label style="color:<? echo $colorMessageWarning ?>" > <? echo $messageWarning ?> </label>
-                              <div class="col-md-6">
-                                  <div class="input-group input-group-static mb-4">
-                                      <label style="<?echo $nameLabelColor?>" >Votre Nom complet <? echo $nameTextAdded ?></label>
-                                      <input name="name" type="text" class="form-control" placeholder="Nom complet" style="<? echo $nameManquant; ?>" value="<?php echo $name ?>">
-                                  </div>
+                            <label style="color:<?php echo $colorMessageWarning; ?>" > <?php echo $messageWarning; ?> </label>
+                            <div class="col-md-6">
+                              <div class="input-group input-group-static mb-4">
+                                  <label style="<?php echo $nameLabelColor; ?>" >Votre Nom complet <?php echo $nameTextAdded; ?></label>
+                                  <input name="name" type="text" class="form-control" placeholder="Nom complet" style="<?php echo $nameManquant; ?>" value="<?php echo $name; ?>">
                               </div>
-                              <div class="col-md-6 ps-md-2">
-                                  <div class="input-group input-group-static mb-4">
-                                      <label style="<?echo $emailLabelColor?>" >Votre Email <? echo $emailTextAdded ?></label>
-                                      <input name="email" type="email" class="form-control" placeholder="exemple@domaine.com" style="<? echo $emailManquant; ?>" value="<?php echo $email ?>">
-                                  </div>
+                            </div>
+                            <div class="col-md-6 ps-md-2">
+                              <div class="input-group input-group-static mb-4">
+                                  <label style="<?php echo $emailLabelColor; ?>" >Votre Email <?php echo $emailTextAdded; ?></label>
+                                  <input name="email" type="email" class="form-control" placeholder="exemple@domaine.com" style="<?php echo $emailManquant; ?>" value="<?php echo $email; ?>">
                               </div>
-
-                              <div class="form-group mb-0 mt-md-0 mt-4">
-                                  <div class="input-group input-group-static mb-4">
-                                      <label style="<? echo $messageLabelColor ?>" >Décrivez votre demande <? echo $messageTextAdded ?></label>
-                                      <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum." style="<? echo $messageManquant; ?>"><?php echo $message ?></textarea>
-                                  </div>
-                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group mb-0 mt-md-0 mt-4">
+                            <div class="input-group input-group-static mb-4">
+                                <label style="<?php echo $messageLabelColor; ?>" >Décrivez votre demande <?php echo $messageTextAdded; ?></label>
+                                <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum." style="<?php echo $messageManquant; ?>"><?php echo $message; ?></textarea>
+                            </div>
                           </div>
                           <div class="row">
                               <div class="col-md-12 text-center">
