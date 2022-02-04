@@ -109,6 +109,10 @@ function getCountTableName($tableName)
              src="https://www.facebook.com/tr?id=1673451336336178&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Facebook Pixel Code -->
+
+<!--  facebook verification  -->
+<meta name="facebook-domain-verification" content="at0a08i41rghn4f1fdttecznr7roda" />
+
 <!--     Fonts and icons     -->
 <link rel="styleshesvet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 
