@@ -371,7 +371,7 @@ if (isset($_POST["submit"])) {
                         <i class="fas fa-envelope text-sm"></i>
                       </div>
                       <div class="ps-3">
-                        <span class="text-sm opacity-8">heficience@gmail.com</span>
+                        <span class="text-sm opacity-8">paul.woisard@heficience.com</span>
                       </div>
                     </div>
                     <div class="d-flex p-2 text-white">
