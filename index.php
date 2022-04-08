@@ -60,6 +60,45 @@ function getCountTableName($tableName)
     }
     echo $count;
 }
+
+function curl_get_contents($Url)
+{
+  $curl = curl_init($Url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
+  curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+  curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+  curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36');
+  $data = curl_exec($curl);
+  curl_close($curl);
+  return $data;
+}
+
+$url = "https://api.github.com/repos/Heficience/Heficience-menu/releases";
+$json = @curl_get_contents($url);
+$json_data = json_decode($json, true);
+$counterHeficienceMenu=0;
+$i=0;
+do {
+    $j=0;
+    do {
+      $counterHeficienceMenu += $json_data[$i]['assets'][$j]['download_count'];
+      $j++;
+    } while (!is_null($json_data[$i]['assets'][$j]['download_count']));
+    $i++;
+} while (!is_null($json_data[$i]['assets'][0]['download_count']));
+
+$today = date('Y-m-d');
+
+$url = "https://sourceforge.net/projects/dvkbuntu/files/stats/json?start_date=2014-10-29&end_date=$today";
+$json = @curl_get_contents($url);
+$json_data = json_decode($json, true);
+$counterDVKBuntu = $json_data['total'];
+$url = "https://sourceforge.net/projects/dvkbuntulight/files/stats/json?start_date=2014-10-29&end_date=$today";
+$json = @curl_get_contents($url);
+$json_data = json_decode($json, true);
+$counterDVKBuntu += $json_data['total'];
+
 ?>
 <!DOCTYPE html>
 <html lang="fr" itemscope>
@@ -248,8 +287,8 @@ function getCountTableName($tableName)
         <div class="row">
           <div class="col-md-4 position-relative">
             <div class="p-3 text-center">
-                <h1 class="text-gradient text-success"><span id="state1" countTo="<?php getCountTableName("Menu"); ?>">0</span></h1>
-              <h5 class="mt-3">Téléchargements ce mois de Heficience Menu</h5>
+                <h1 class="text-gradient text-success"><span id="state1" countTo="<?php echo $counterHeficienceMenu; ?>">0</span></h1>
+              <h5 class="mt-3">Téléchargements totals de Heficience Menu</h5>
               <p class="text-sm font-weight-normal">Une nouvelle façon d'utiliser votre ordinateur (sous macOS, sous Windows ou Linux)</p>
             </div>
             <hr class="vertical dark">
@@ -264,8 +303,8 @@ function getCountTableName($tableName)
           </div>
           <div class="col-md-4">
             <div class="p-3 text-center">
-                <h1 class="text-gradient text-success"><span id="state3" countTo="<?php getCountTableName("DVK"); ?>">0</span></h1>
-              <h5 class="mt-3">Téléchargements ce mois de Heficience DVKBuntu</h5>
+                <h1 class="text-gradient text-success"><span id="state3" countTo="<?php echo $counterDVKBuntu; ?>">0</span></h1>
+              <h5 class="mt-3">Téléchargements totals de Heficience DVKBuntu</h5>
               <p class="text-sm font-weight-normal">Deux distributions Linux avec plusieurs outils d'accessibilité pour les personnes en situation de handicap.</p>
             </div>
           </div>
