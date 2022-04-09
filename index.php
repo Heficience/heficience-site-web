@@ -288,7 +288,7 @@ $counterDVKBuntu += $json_data['total'];
           <div class="col-md-4 position-relative">
             <div class="p-3 text-center">
                 <h1 class="text-gradient text-success"><span id="state1" countTo="<?php echo $counterHeficienceMenu; ?>">0</span></h1>
-              <h5 class="mt-3"><a href="./pages/reference.html#heficience-menu">Téléchargements totals de Heficience Menu</a></h5>
+              <h5 class="mt-3"><a href="./pages/reference.html#heficience-menu">Téléchargements totaux de Heficience Menu</a></h5>
               <p class="text-sm font-weight-normal">Une nouvelle façon d'utiliser votre ordinateur (sous macOS, sous Windows ou Linux)</p>
             </div>
             <hr class="vertical dark">
@@ -304,7 +304,7 @@ $counterDVKBuntu += $json_data['total'];
           <div class="col-md-4">
             <div class="p-3 text-center">
                 <h1 class="text-gradient text-success"><span id="state3" countTo="<?php echo $counterDVKBuntu; ?>">0</span></h1>
-              <h5 class="mt-3"><a href="./pages/reference.html#DVKBuntu">Téléchargements totals de Heficience DVKBuntu</a></h5>
+              <h5 class="mt-3"><a href="./pages/reference.html#DVKBuntu">Téléchargements totaux de Heficience DVKBuntu</a></h5>
               <p class="text-sm font-weight-normal">Deux distributions Linux avec plusieurs outils d'accessibilité pour les personnes en situation de handicap.</p>
             </div>
           </div>
