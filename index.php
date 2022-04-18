@@ -366,6 +366,8 @@ $counterDVKBuntu += $json_data['total'];
     </div>
   </div>
 </section>
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-6b3da05b-8cae-4316-ab24-687d53164b67"></div>
 </div>
 <footer class="footer pt-5 mt-5">
   <div class="container">
