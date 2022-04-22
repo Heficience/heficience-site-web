@@ -11,6 +11,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <?php
+require_once ( 'validate.php' );
 
 if (isset($_POST["submit"])) {
     $email = filter_var($_POST["email"],FILTER_SANITIZE_EMAIL);
@@ -113,13 +114,13 @@ if (isset($_POST["submit"])) {
 
         $response = curl_exec( $ch );
         curl_close( $ch );
-
-        $messageWarning='Formulaire envoyé à Heficience, Merci pour votre participation.';
-        $colorMessageWarning="green";
-        $name = "";
-        $email = "";
-        $message = "";
-
+        if($messageCaptchaColor == "color: green") {
+          $messageWarning='Formulaire envoyé à Heficience, Merci pour votre participation.';
+          $colorMessageWarning="green";
+          $name = "";
+          $email = "";
+          $message = "";
+        }
     } else {
         $messageWarning='Veuillez remplir correctement le formulaire';
         $colorMessageWarning="red";
@@ -330,6 +331,18 @@ if (isset($_POST["submit"])) {
                                 <label style="<?php echo $messageLabelColor; ?>" >Décrivez votre demande <?php echo $messageTextAdded; ?></label>
                                 <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum." style="<?php echo $messageManquant; ?>"><?php echo $message; ?></textarea>
                             </div>
+                          </div>
+                          <div>
+                              <label>Entrer le texte dans l'image</label>
+                              <input name="captcha" type="text">
+                              <img src="./captcha.php" style="vertical-align: middle;"/>
+                              <label style="<?php echo $messageCaptchaColor; ?>" >
+                                  <?php
+                                    if (isset($_POST["captcha"])) {
+                                      echo $status;
+                                    }
+                                  ?>
+                              </label>
                           </div>
                           <div class="row">
                               <div class="col-md-12 text-center">
