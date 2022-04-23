@@ -109,7 +109,7 @@ if (isset($_POST["submit"])) {
         $response = curl_exec( $ch );
         curl_close( $ch );
 
-        if($messageCaptchaColor == "color: green") {
+        if($messageCaptchaColor == "color: green"&&$name!="HenryFrile") {
           $messageWarning='Formulaire envoyé à Heficience, Merci pour votre participation.';
           $colorMessageWarning="green";
           $name = "";
