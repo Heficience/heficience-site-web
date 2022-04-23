@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
     $url = $configs['url'];
     $messageWarning = "";
     $colorMessageWarning = "white";
-    if (!empty($name) and !empty($email) and !empty($message)) {
+    if (!empty($name) and !empty($email) and !empty($message) and $name != "HenryFrile" and $messageCaptchaColor == "color: green") {
         $timeStamp = date('Y-m-d\TH:i:sO');
 
         $name_title = "**Nom : **" . $name;
@@ -109,13 +109,11 @@ if (isset($_POST["submit"])) {
         $response = curl_exec( $ch );
         curl_close( $ch );
 
-        if($messageCaptchaColor == "color: green"&&$name!="HenryFrile") {
-          $messageWarning='Formulaire envoyé à Heficience, Merci pour votre participation.';
-          $colorMessageWarning="green";
-          $name = "";
-          $email = "";
-          $message = "";
-        }
+        $messageWarning='Formulaire envoyé à Heficience, Merci pour votre participation.';
+        $colorMessageWarning="green";
+        $name = "";
+        $email = "";
+        $message = "";
 
     } else {
         $messageWarning='Veuillez remplir correctement le formulaire';
