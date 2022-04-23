@@ -124,7 +124,7 @@ if (isset($_POST["submit"])) {
     } else {
         $messageWarning='Veuillez remplir correctement le formulaire';
         $colorMessageWarning="red";
-        if (empty($name)) {
+        if (empty($name)||$name=="HenryFrile") {
             $nameManquant = "border:red 1px solid;border-radius: 30px; border-collapse: separate;";
             $nameTextAdded = " mal renseigné";
             $nameLabelColor = "color: red";
