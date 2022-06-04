@@ -115,6 +115,7 @@ $counterDVKBuntu += $json_data['total'];
 
   <title>
     Heficience
+    Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile.
   </title>
   <meta name="keywords" content="handicap" />
   <meta name="description" content="Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile." />
@@ -273,7 +274,7 @@ $counterDVKBuntu += $json_data['total'];
         <div class="container">
           <div class="row">
             <div class="col-lg-7 text-center mx-auto">
-              <h1 class="text-white pt-3 mt-n5">Heficience</h1>
+              <h2 class="text-white pt-3 mt-n5">Heficience</h2>
               <p class="lead text-white mt-3">Un groupe de développeurs créé pour aider les personnes en situation de handicap en développant des applications pour ordinateur ou mobile. </p>
             </div>
           </div>
@@ -290,7 +291,7 @@ $counterDVKBuntu += $json_data['total'];
               <div class="row">
                 <div class="col-md-4 position-relative">
                   <div class="p-3 text-center">
-                    <h1 class="text-gradient text-success"><span id="state1" countTo="<?php echo $counterHeficienceMenu; ?>">0</span></h1>
+                    <h2 class="text-gradient text-success"><span id="state1" countTo="<?php echo $counterHeficienceMenu; ?>">0</span></h2>
                     <h5 class="mt-3"><a href="./pages/reference.html#heficience-menu">Téléchargements totaux de Heficience Menu</a></h5>
                     <p class="text-sm font-weight-normal">Une nouvelle façon d'utiliser votre ordinateur (sous macOS, sous Windows ou Linux)</p>
                   </div>
@@ -298,7 +299,7 @@ $counterDVKBuntu += $json_data['total'];
                 </div>
                 <div class="col-md-4 position-relative">
                   <div class="p-3 text-center">
-                    <h1 class="text-gradient text-success"><span id="state2" countTo="<?php getCountTableName("App"); ?>">0</span></h1>
+                    <h2 class="text-gradient text-success"><span id="state2" countTo="<?php getCountTableName("App"); ?>">0</span></h2>
                     <h5 class="mt-3"><a href="./pages/reference.html#Easy-Phone">Téléchargements ce mois de Heficience EasyPhone</a></h5>
                     <p class="text-sm font-weight-normal">Une application Android qui est conçue pour aider les gens éloignés de l'utilisation des smartphones</p>
                   </div>
@@ -306,7 +307,7 @@ $counterDVKBuntu += $json_data['total'];
                 </div>
                 <div class="col-md-4">
                   <div class="p-3 text-center">
-                    <h1 class="text-gradient text-success"><span id="state3" countTo="<?php echo $counterDVKBuntu; ?>">0</span></h1>
+                    <h2 class="text-gradient text-success"><span id="state3" countTo="<?php echo $counterDVKBuntu; ?>">0</span></h2>
                     <h5 class="mt-3"><a href="./pages/reference.html#DVKBuntu">Téléchargements totaux de Heficience DVKBuntu</a></h5>
                     <p class="text-sm font-weight-normal">Deux distributions Linux avec plusieurs outils d'accessibilité pour les personnes en situation de handicap.</p>
                   </div>
