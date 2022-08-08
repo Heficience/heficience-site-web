@@ -168,10 +168,8 @@ require_once ( 'formulaire.php' );
             <div class="row py-5">
               <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <h3 class="mb-0">PaulW</h3>
+                  <h3 class="mb-0">Paullux WAFFLE</h3>
                   <div class="d-block">
-                    <a target="_blank" href="https://twitter.com/PaulWOISARD?ref_src=twsrc%5Etfw" class="btn btn-sm btn-outline-info text-nowrap mb-0" data-show-count="false">Suivez-Moi</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    <!--<button type="button" onclick="window.location.href='/page2'" class="btn btn-sm btn-outline-info text-nowrap mb-0">Follow</button>-->
                   </div>
                 </div>
                 <div class="row mb-4">
@@ -230,18 +228,10 @@ require_once ( 'formulaire.php' );
                     <p class="text-white opacity-8 mb-4">Remplissez le formulaire et on vous répond sous 24 heures.</p>
                     <div class="d-flex p-2 text-white">
                       <div>
-                        <i class="fas fa-phone text-sm"></i>
-                      </div>
-                      <div class="ps-3">
-                        <span class="text-sm opacity-8">(+33) 6 15 17 73 00</span>
-                      </div>
-                    </div>
-                    <div class="d-flex p-2 text-white">
-                      <div>
                         <i class="fas fa-envelope text-sm"></i>
                       </div>
                       <div class="ps-3">
-                        <span class="text-sm opacity-8">paul.woisard@heficience.com</span>
+                        <span class="text-sm opacity-8">paullux.waffle@heficience.com</span>
                       </div>
                     </div>
                     <div class="d-flex p-2 text-white">
