@@ -47,6 +47,10 @@ function countClicksMonth($bitlyCode)
   curl_close($ch);
 
   $arr_result = json_decode($data);
+  if(is_null($arr_result)){
+      $arr_result = new \stdClass;
+      $arr_result['total_clicks'] = 0;
+  }
   return $arr_result->total_clicks;
 }
 
@@ -77,6 +81,9 @@ function curl_get_contents($Url)
 $url = "https://api.github.com/repos/Heficience/Heficience-menu/releases";
 $json = @curl_get_contents($url);
 $json_data = json_decode($json, true);
+if(is_null($json_data)){
+    $json_data = [];
+}
 $counterHeficienceMenu=0;
 $i=0;
 do {
@@ -93,10 +100,16 @@ $today = date('Y-m-d');
 $url = "https://sourceforge.net/projects/dvkbuntu/files/stats/json?start_date=2014-10-29&end_date=$today";
 $json = @curl_get_contents($url);
 $json_data = json_decode($json, true);
+if(is_null($json_data)){
+    $json_data = [];
+}
 $counterDVKBuntu = $json_data['total'];
 $url = "https://sourceforge.net/projects/dvkbuntulight/files/stats/json?start_date=2014-10-29&end_date=$today";
 $json = @curl_get_contents($url);
 $json_data = json_decode($json, true);
+if(is_null($json_data)){
+    $json_data = [];
+}
 $counterDVKBuntu += $json_data['total'];
 
 ?>
