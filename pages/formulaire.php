@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
     $emailLabelColor = "";
     $MessageTextAdded = "";
     $messageLabelColor = "";
-    if (!empty($name) and !empty($email) and !empty($message) and $name != "HenryFrile" and $name != "CrytoFrile" and $messageCaptchaColor == "color: green") {
+    if (!empty($name) and !empty($email) and !empty($message) and $name != "HenryFrile" and $name != "CrytoFrile" and $messageCaptchaColor == "color: green" and $name != "nenfrile") {
         $timeStamp = date('Y-m-d\TH:i:sO');
 
         $name_title = "**Nom : **" . $name;
