@@ -91,9 +91,9 @@ do {
   do {
     $counterHeficienceMenu += $json_data[$i]['assets'][$j]['download_count'];
     $j++;
-  } while (!is_null($json_data[$i]['assets'][$j]['download_count']));
+  } while (isset($json_data[$i]['assets'][$j]['download_count']));
   $i++;
-} while (!is_null($json_data[$i]['assets'][0]['download_count']));
+} while (isset($json_data[$i]['assets'][0]['download_count']));
 
 $today = date('Y-m-d');
 
@@ -498,7 +498,7 @@ $counterDVKBuntu += $json_data['total'];
           <div class="col-12">
             <div class="text-center">
               <p class="text-dark my-4 text-sm font-weight-normal">
-                All rights reserved. Copyright © <script>document.write(new Date().getFullYear())</script> Material Kit by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>. Ainsi que © <script>document.write(new Date().getFullYear())</script> <a href="https://www.heficience.com">Heficience</a><br>
+                All rights reserved. Copyright © <script>document.write(new Date().getFullYear());</script> Material Kit by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>. Ainsi que © <script>document.write(new Date().getFullYear());</script> <a href="https://www.heficience.com">Heficience</a><br>
                 Distributed By: <a href="https://www.themewagon.com" target="_blank">ThemeWagon</a>
               </p>
             </div>

@@ -256,31 +256,31 @@ require_once ( 'formulaire.php' );
                   <h2></h2>
                   <div class="card-body p-0 my-3">
                     <div class="row">
-                      <label style="color:<?php echo $colorMessageWarning; ?>" > <?php echo $messageWarning; ?> </label>
+                      <label style="color:<?php if (isset($colorMessageWarning)) { echo $colorMessageWarning; } ?>" > <?php echo $messageWarning; ?> </label>
                       <div class="col-md-6">
                         <div class="input-group input-group-static mb-4">
-                            <label style="<?php echo $nameLabelColor; ?>" >Votre Nom complet <?php echo $nameTextAdded; ?></label>
-                            <input name="name" type="text" class="form-control" placeholder="Nom complet" style="<?php echo $nameManquant; ?>" value="<?php echo $name; ?>">
+                            <label style="<?php if (isset($nameLabelColor)) { echo $nameLabelColor; } ?>" >Votre Nom complet <?php if (isset($nameTextAdded)) { echo $nameTextAdded; } ?></label>
+                            <input name="name" type="text" class="form-control" placeholder="Nom complet" style="<?php if (isset($nameManquant)) { echo $nameManquant; } ?>" value="<?php if (isset($name)) { echo $name; } ?>">
                         </div>
                       </div>
                       <div class="col-md-6 ps-md-2">
                         <div class="input-group input-group-static mb-4">
-                            <label style="<?php echo $emailLabelColor; ?>" >Votre Email <?php echo $emailTextAdded; ?></label>
-                            <input name="email" type="email" class="form-control" placeholder="exemple@domaine.com" style="<?php echo $emailManquant; ?>" value="<?php echo $email; ?>">
+                            <label style="<?php if (isset($emailLabelColor)) { echo $emailLabelColor; } ?>" >Votre Email <?php if (isset($emailTextAdded)) { echo $emailTextAdded; } ?></label>
+                            <input name="email" type="email" class="form-control" placeholder="exemple@domaine.com" style="<?php if (isset($emailManquant)) { echo $emailManquant; } ?>" value="<?php if (isset($email)) { echo $email; } ?>">
                         </div>
                       </div>
                     </div>
                     <div class="form-group mb-0 mt-md-0 mt-4">
                       <div class="input-group input-group-static mb-4">
-                          <label style="<?php echo $messageLabelColor; ?>" >Décrivez votre demande <?php echo $messageTextAdded; ?></label>
-                          <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum." style="<?php echo $messageManquant; ?>"><?php echo $message; ?></textarea>
+                          <label style="<?php if (isset($messageLabelColor)) {echo $messageLabelColor; } ?>" >Décrivez votre demande <?php if (isset($messageTextAdded)) { echo $messageTextAdded; } ?></label>
+                          <textarea name="message" class="form-control" id="message" placeholder="Message" rows="5" placeholder="Décrivez votre demande avec 250 caractères aux maximum." style="<?php if (isset($messageManquant)) { echo $messageManquant; } ?>"><?php if (isset($message)) { echo $message; } ?></textarea>
                       </div>
                     </div>
                     <div>
                         <label>Entrer le texte dans l'image</label>
                         <input name="captcha" type="text">
                         <img src="./captcha.php" style="vertical-align: middle;"/>
-                        <label style="<?php echo $messageCaptchaColor; ?>" >
+                        <label style="<?php if (isset($messageCaptchaColor)) { echo $messageCaptchaColor; } ?>" >
                             <?php
                               if (isset($_POST["captcha"])) {
                                 echo $status;
@@ -413,7 +413,7 @@ require_once ( 'formulaire.php' );
         <div class="col-12">
           <div class="text-center">
             <p class="text-dark my-4 text-sm font-weight-normal">
-              All rights reserved. Copyright © <script>document.write(new Date().getFullYear())</script> Material Kit by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>. Ainsi que © <script>document.write(new Date().getFullYear())</script> <a href="https://www.heficience.com" target="_blank">Heficience</a><br>
+              All rights reserved. Copyright © <script>document.write(new Date().getFullYear());</script> Material Kit by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>. Ainsi que © <script>document.write(new Date().getFullYear())</script> <a href="https://www.heficience.com" target="_blank">Heficience</a><br>
               Distributed By: <a href="https://www.themewagon.com" target="_blank">ThemeWagon</a>
             </p>
           </div>
